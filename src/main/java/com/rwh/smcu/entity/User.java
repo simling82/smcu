@@ -1,6 +1,7 @@
 package com.rwh.smcu.entity;
 
 import javax.persistence.*;
+import java.lang.reflect.Field;
 
 @Entity(name = "User")
 public class User {
@@ -43,5 +44,16 @@ public class User {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public static void main(String[] args) {
+    User user = new User();
+    Field[] fields = user.getClass().getDeclaredFields();
+    System.out.println("user");
+    for (int i = 0; i < fields.length; i++) {
+
+      System.out.println(fields[i]);
+    }
+
   }
 }
